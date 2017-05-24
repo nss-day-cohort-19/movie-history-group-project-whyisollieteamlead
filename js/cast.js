@@ -21,6 +21,4 @@ let getCast = function(movieID) {
 	});
 };
 
-
-
 module.exports = {getCast};

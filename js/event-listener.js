@@ -1,3 +1,4 @@
+"use strict";
 //send newMovie to the db then reload DOM w/ updated movie data
 $(document).on("click", ".add-new-movie", function(){
 		console.log("clicked add new movie btn");
