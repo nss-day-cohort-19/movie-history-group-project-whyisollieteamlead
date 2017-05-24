@@ -9,10 +9,13 @@ var config = {
 };
 
 api.getJSON = function(query) {
+	let movies = [];
 	query = query.toLowerCase();
-	$.getJSON( `${databaseURL}api_key=${apiKey}&query=${query}`, function(){
-		;
-	})
+	$.getJSON( `${databaseURL}api_key=${apiKey}&query=${query}`, function(data){
+		$.each(data, function() {
+			;
+		});
+	});
 };
 
 module.exports = {getJSON};
