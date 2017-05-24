@@ -17,7 +17,7 @@ function getJSON(query) {
 		$.getJSON(`${config.databaseURL}/3/search/movie?api_key=${config.apiKey}&query=${query}`, function(data) {
 				data = data.results;
 				console.log("movie getJSON array", data);
-		}).done(function() {
+		}).done(function(data) {
 			resolve(data);
 		});
 	});
