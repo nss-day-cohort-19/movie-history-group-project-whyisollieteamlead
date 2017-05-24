@@ -8,8 +8,11 @@ var config = {
 	databaseURL: apiData.databaseURL
 };
 
-api.getAPIsettings = function() {
-	return config;
+api.getJSON = function(query) {
+	query = query.toLowerCase();
+	$.getJSON( `${databaseURL}api_key=${apiKey}&query=${query}`, function(){
+		;
+	})
 };
 
-module.exports = {getAPIsettings};
+module.exports = {getJSON};
