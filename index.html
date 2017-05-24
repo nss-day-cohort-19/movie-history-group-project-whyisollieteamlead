@@ -1,16 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>Movies</title>
+	<link rel="stylesheet" type="text/css" href="lib/node_modules/bootstrap/dist/css/boostrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-<h1>Movies</h1>
-<div>
-<button class="add-new-movie"></button>
-<button class="edit-btn"></button>
-<button class="delete-btn"></button>
-</div>
+	<div class="container" id="master-wrapper">
+		<div class="container" id="navSearch">
+			<label for="searchTerm">Search:</label>
+			<input type="text" name="searchTerm" id="searchbar">
+			<a href="#" id="loginLink">Login</a>
+			<a href="#" id="logoutLink" class="hidden"></a>
+		</div>
 
-<script type="text/javascript" src="dist/app.js"></script>
+		<h1>Movie History</h1>
+		<div id="searchFilter">
+			<p id="untracked">Show Untracked</p>
+			<p id="unwatched">Show Unwatched</p>
+			<p id="watched">Show Watched</p>
+			<p id="favorites">Favorites</p>
+		</div>
+		<div class="container">
+			<div class="row container">
+				<div class="col-md-3 movieCard" >
+					
+				</div>
+				<div class="col-md-3 movieCard">
+					
+				</div>
+				<div class="col-md-3 movieCard">
+					
+				</div>
+			</div>
+		</div>
+
+		<!-- <div>
+			<button class="add-new-movie"></button>
+			<button class="edit-btn"></button>
+			<button class="delete-btn"></button>
+		</div> -->
+	</div>
+
+	<script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="dist/app.js"></script>
 </body>
 </html>

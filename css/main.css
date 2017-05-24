@@ -1,0 +1,41 @@
+#master-wrapper {
+	padding: 2% 5%;
+}
+/*Navigation and login bar*/
+#navSearch {
+	border: 1px solid black;
+	padding: 20px 30px;
+}
+
+#navSearch a {
+	margin-left: ;
+}
+
+
+
+
+
+/*Search filter options*/
+#searchFilter {
+	border: 1px solid black;
+}
+
+#searchFilter p {
+	display: inline-block;
+	padding: 5px;
+}
+
+
+
+#untracked,
+#unwatched,
+#watched {
+	border-right: 1px solid black;
+}
+
+
+/*Movie Cards*/
+.movieCard {
+	border: 1px solid black;
+	height: 200px;
+}
