@@ -17,6 +17,7 @@
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-sass": "^2.0.0",
+    "handlebars": "^4.0.10",
     "jquery": "^3.2.1",
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
