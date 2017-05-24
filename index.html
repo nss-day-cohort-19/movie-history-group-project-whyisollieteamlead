@@ -2,13 +2,42 @@
 <html>
 
 <head>
-    <title>Movies</title>
-    <link rel="stylesheet" href="/lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-</head>
 
+	<meta charset="utf-8">
+	<title>Movies</title>
+	<link rel="stylesheet" type="text/css" href="lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
 <body>
-    <h1>Movies</h1>
+	<div class="container" id="master-wrapper">
+		<div class="container" id="navSearch">
+			<label for="searchTerm">Search:</label>
+			<input type="text" name="searchTerm" id="searchbar">
+			<a href="#" id="loginLink">Login</a>
+			<a href="#" id="logoutLink" class="hidden"></a>
+		</div>
+
+		<h1>Movie History</h1>
+		<div id="searchFilter">
+			<p id="untracked">Show Untracked</p>
+			<p id="unwatched">Show Unwatched</p>
+			<p id="watched">Show Watched</p>
+			<p id="favorites">Favorites</p>
+		</div>
+		<div class="container" id="output">
+			<div class="row container">
+				<div class="col-sm-3 movieCard" >
+					
+				</div>
+				<div class="col-sm-3 col-sm-offset-1 movieCard">
+					
+				</div>
+				<div class="col-sm-3 col-sm-offset-1 movieCard">
+					
+				</div>
+			</div>
+		</div>
+
     <div>
         <input type="text" placeholder="Search Movies">
         <button id="search-btn">Search</button>
@@ -24,7 +53,9 @@
     </div>
     <br>
     <footer>the footer will go here</footer>
-    <script type="text/javascript" src="dist/app.js"></script>
+  <script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="dist/app.js"></script>
+
 </body>
 
 </html>
