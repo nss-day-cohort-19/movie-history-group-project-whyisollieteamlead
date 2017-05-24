@@ -1,9 +1,9 @@
 "use strict";
 
-let $ = require('jquery');
-	db = require("./dom-interaction");
-	templates = require("./dom-builder");
-	user = require("./user");
+// let $ = require('jquery');
+// 	db = require("./dom-interaction");
+// 	templates = require("./dom-builder");
+// 	user = require("./user");
 
 //using the rest api
 function loadMoviesToDom(){
@@ -39,8 +39,8 @@ $(document).on("click", ".edit-btn", function(){
 		let movieID = $(this).data("edit-id");
 		db.getMovies(movieID)
 		.then(function(movie){
-			return templates.movieForm(movie, movieID)
-		})
+			return templates.movieForm(movie, movieID);
+		});
 		// .then(function(finishedForm){
 		// 	//will need to add div or wrapper here
 		// });
@@ -54,14 +54,47 @@ $(document).on("click", ".delete-btn", function(){
 	});
 });
 
-// function buildMovieObj() {
-// 	this will depend on the api format-- leaving blank for now
-// };
+//*************************************************
+//HELPER FUNCTIONS- DOES NOT INVOLVE FIREBASE/API
+//*************************************************
+//these may need to edited depending on API formatting/info
+
+function buildMovieObj(){
+	let movieObj = {
+		// title: $("#form-title").val(),
+		// poster: $("#form-poster").val(),
+		// rating: $("#form-rating").val(),
+		// movieId: $("#form-movieId").val();
+		// uid: user.getUser();
+	};
+	return movieObj;
+}
 
 
+//load the new movie form
+$("#add-movie").click(function(){
+	console.log("clicked add movie");
+	var movieForm = templates.movieForm()
+	.then(function(movieForm){
+		$(".uiContainer--wrapper").html(movieForm);
+	});
+});
 
+$("#auth-btn").click(function(){
+	console.log("clicked on auth-btn");
+	user.logInGoogle()
+	.then(function(result){
+		console.log("result from user login", result.user.uid);
+		user.setUser(result.user.uid);
+		$("#auth-btn").addClass("is-hidden");
+		$("#logout").addClass("is-hidden");
+		loadMoviesToDOM();
+	});
+});
 
-
-
+$("#logout").click(function(){
+	console.log("LOGOUT WAS CLICKED");
+	user.logOut();
+});
 
 
