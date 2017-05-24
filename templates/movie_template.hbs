@@ -1,5 +1,22 @@
 {{#each this}}
 
-	
+<div class="col-sm-3 movieCard" id="card{{@index}}">
+	<div class="poster">
+	{{image}}
+	<button class="deleteCard">Delete</button>
+	</div>
+	<h3 class="title">{{title}}</h3>
+	<h4 class="releaseYear">{{releaseYear}}</h4>
+	<h5 class="stars">{{actors}}</h5>
+	<p class="description">{{description}}</p>
+	{{#if tracking}}
+    <h6><a>Watched</a></h6>
+    {{else}}
+    <h6><a>Add to Watchlist</a></h6>
+  	{{/if}}
+  	{{#if watched}}
+  	{{!-- Stars --}}
+  	{{/if}}
+</div>
 
 {{/each}}
