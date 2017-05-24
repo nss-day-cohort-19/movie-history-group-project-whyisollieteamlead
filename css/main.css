@@ -1,36 +1,33 @@
-#master-wrapper {
-	padding: 2% 5%;
-}
+
 /*Navigation and login bar*/
 #navSearch {
 	border: 1px solid black;
 	padding: 20px 30px;
+	border-radius: 5px;
+	box-shadow: 1px 1px grey;
 }
 
 #navSearch a {
-	margin-left: ;
+	margin-left: 55%;
 }
-
-
-
+#searchbar {
+	width: 30%;
+}
 
 
 /*Search filter options*/
 #searchFilter {
-	border: 1px solid black;
+	
+	margin-right:auto;
 }
 
 #searchFilter p {
 	display: inline-block;
+	border:1px solid black;
 	padding: 5px;
-}
-
-
-
-#untracked,
-#unwatched,
-#watched {
-	border-right: 1px solid black;
+	margin:0;
+	border-radius: 5px;
+	box-shadow: 1px 1px grey;
 }
 
 
@@ -38,4 +35,7 @@
 .movieCard {
 	border: 1px solid black;
 	height: 200px;
+	margin-top: 20px;
+	border-radius: 5px;
+	box-shadow: 1px 1px grey;
 }
