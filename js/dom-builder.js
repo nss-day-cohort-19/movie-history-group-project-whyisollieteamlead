@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 let $ = require('jquery'),
     movieTemplate = require("./templates/movie_template.hbs");
@@ -6,4 +6,4 @@ let $ = require('jquery'),
 function buildDom(movies) {
 	let masterCard = movie_template(movies);
 	$("output").html(masterCard);
-};
+}
