@@ -38,6 +38,3 @@ function buildMovieObj(){
 	};
 	return movieObj;
 }
-
-
-/

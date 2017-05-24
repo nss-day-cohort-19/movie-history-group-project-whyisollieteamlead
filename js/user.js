@@ -1,6 +1,6 @@
 "use strict";
 
-let firebase = require("./firebaseConfig"),
+let firebase = require("./fb-config"),
 	$ = require("jquery"),
 	provider = new firebase.auth.GoogleAuthProvide(),
 	currentUser = null;
