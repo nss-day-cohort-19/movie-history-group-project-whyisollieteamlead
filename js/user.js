@@ -2,7 +2,7 @@
 
 let firebase = require("./fb-config"),
 	$ = require("jquery"),
-	provider = new firebase.auth.GoogleAuthProvide(),
+	provider = new firebase.auth.GoogleAuthProvider(),
 	currentUser = null;
 
 firebase.auth().onAuthStateChanged(function(user){
