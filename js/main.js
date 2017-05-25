@@ -137,8 +137,7 @@ function displayWatchList (watchObj) {
         };
         let currentUser = user.getUser();
         db.updateStars(currentStarID, starObj, currentUser);
-//        console.log(value);
-//        console.log(caption);
+
     });
 }
 //Tam...removed watched movie card from page
@@ -150,3 +149,33 @@ $(document).on("click", '.watch-list-delete', function(event){
     db.deleteWatchedMovie(firebaseKey, currentUser);
     deleteButton.remove();
 });
+
+
+$("#show-watched-movies").click((event)=>{
+    $(".movies").empty();
+    let currentUser = user.getUser();
+    db.pullWatchFromFirebase(currentUser)
+    .then((movieObj) =>{
+        for (let key in movieObj) {
+            let singleMovie = movieObj[key];
+            singleMovie.key = key;
+            if (singleMovie.starValue > 0) {
+                $(".movies").append(watchedcardsTemplate(singleMovie));
+                $("#star--" + key).rating({stars: 10, step: 1, min: 0, max: 10});
+                $("#star--" + key).rating('update', singleMovie.starValue);
+            }
+        }
+
+    }).catch(console.error);
+});
+
+
+
+
+
+
+
+
+
+
+
