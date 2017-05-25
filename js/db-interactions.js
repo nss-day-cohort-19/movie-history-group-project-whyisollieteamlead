@@ -26,7 +26,7 @@ function getActors(movieID) {
         });
     });
 }
-function pushToFirebase(movieObj, userID){
+function pushToFirebase(movieObj){
     return new Promise(function(resolve, reject){
         $.ajax({
             url: `${firebase.getFBsettings().databaseURL}/movies.json`,
@@ -53,7 +53,7 @@ function pushToFirebase(movieObj, userID){
 function pullWatchFromFirebase(userID){
     return new Promise(function(resolve, reject){
         $.ajax({
-            url: `${firebase.getFBsettings().databaseURL}/${userID}/movies.json`,
+            url: `${firebase.getFBsettings().databaseURL}/movies.json?orderBy="uid"&equalTo="${userID}"`,
             type: "GET",
             dataType: "json"
         }).done(function(data){
@@ -65,7 +65,7 @@ function pullWatchFromFirebase(userID){
 function deleteWatchedMovie(firebaseKey, userID) {
     return new Promise (function(resolve, reject){
         $.ajax({
-            url: `${firebase.getFBsettings().databaseURL}/${userID}/movies/${firebaseKey}.json`,
+            url: `${firebase.getFBsettings().databaseURL}/movies/${firebaseKey}.json`,
             method: "DELETE"
         }).done(function(){
             resolve();
@@ -76,7 +76,7 @@ function deleteWatchedMovie(firebaseKey, userID) {
 function updateStars(firebaseKey, starValue, userID) {
     return new Promise (function(resolve, reject){
         $.ajax({
-            url: `${firebase.getFBsettings().databaseURL}/${userID}/movies/${firebaseKey}.json`,
+            url: `${firebase.getFBsettings().databaseURL}/movies/${firebaseKey}.json`,
             type: "PATCH",
             data: JSON.stringify(starValue)
         }).done(function(data){

@@ -72,7 +72,7 @@ var getActors = function(movieObj){
 
         });
 
-        $(document).on("click", ".add-to-watchlist", function(){
+        $(document).on("click", ".add-to-watchlist", function(event){
                 addToWatchList(movieElementArray, event);
     });
 };
@@ -90,7 +90,7 @@ var addToWatchList = function(movieElementArray,event){
     });
     titleToPush.uid = userID;
     console.log("titleToPush", titleToPush);
-    db.pushToFirebase(titleToPush, userID)
+    db.pushToFirebase(titleToPush)
     .then(function(response){
         console.log(response);
         });
