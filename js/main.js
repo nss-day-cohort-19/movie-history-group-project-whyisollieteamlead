@@ -28,6 +28,7 @@ $("#auth-btn").click(function(){
     // loadUserMovies();
   });
 });
+
 var addToWatchList = function(movieElementArray, event){
     console.log("movieElementArray", movieElementArray);
     var userID = user.getUser();
@@ -50,7 +51,7 @@ $("#find-new-movies").click(function(){
 //    $(“.toggle-buttons”).toggle(“toggle-selected”);
     $("#input").focus();
     $(".movies").empty();
-    let breadcrumbs = "< Search Results";
+    let breadcrumbs = "Movie History > Search Results";
     $("#bread-crumbs").text(breadcrumbs);
     var inputItem = $("#input").val();
     db.getMovie(inputItem)
@@ -59,6 +60,7 @@ $("#find-new-movies").click(function(){
         getActors(newMovieObj);
     });
 });
+
 var getActors = function(movieObj){
     var movieElementArray = [];
     movieObj.results.forEach(function(element){
@@ -83,6 +85,7 @@ var getActors = function(movieObj){
                 addToWatchList(movieElementArray, event);
     });
 };
+
 $(document).on("click", '.add-to-watchlist', function(event){
     var userID = user.getUser();
 //    db.pushToFirebaseArray(newMovieObj.id, userID);
@@ -97,7 +100,7 @@ $("#logout").click(function(){
 });
 ///Tam..buttons do not toggle color yet, pulls a list of movies added to watchlist
 $("#show-unwatched-movies").click((event) =>{
-    let breadcrumbs = "< Search Results/Unwatched";
+    let breadcrumbs = "Movie History > Search Results/Unwatched";
     $("#bread-crumbs").text(breadcrumbs);
     $("#input").val("");
 //    $(".toggle-buttons").toggle("toggle-selected");
