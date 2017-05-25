@@ -35,6 +35,7 @@ $(document).on("click", "#logout-btn", function(){
 //Gets new movies from movie API database, adds breadcrumbs and displays results on page
 $("#find-new-movies").click(function(){
 //    $(“.toggle-buttons”).toggle(“toggle-selected”);
+    $(document).off("click", ".watch-list-delete");
     $("#input").focus();
     $(".movies").empty();
     let breadcrumbs = "Movie History > Search Results";
