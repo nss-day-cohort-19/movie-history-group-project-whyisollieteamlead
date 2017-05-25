@@ -2,5 +2,3 @@
 dist/
 lib/node_modules
 lib/.sass-cache
-js/fb-getter.js
-js/api-getter.js

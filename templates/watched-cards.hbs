@@ -1,0 +1,11 @@
+<div id="{{key}}">
+   <button id="watch--{{id}}" class="watch-list-delete">Remove Card</button>
+    <h2> {{title}}</h2>
+    <p>{{release_date}}</p>
+    <p> Starring </p>
+    {{#each cast}}
+    <p>{{name}} as {{character}}</p>
+    {{/each}}
+    <input id="star--{{key}}" type="text" class="rating" data-size="xs" >
+
+</div>

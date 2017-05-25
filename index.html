@@ -3,47 +3,41 @@
 <head>
 	<meta charset="utf-8">
 	<title>Movies</title>
+	<link rel="stylesheet" type="text/css" href="lib/node_modules/bootstrap-star-rating/css/star-rating.min.css">
 	<link rel="stylesheet" type="text/css" href="lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 	<div class="container" id="master-wrapper">
-		<div class="container" id="navSearch">
-			<label for="searchTerm">Search:</label>
-			<input type="text" name="searchTerm" id="searchbar">
-			<a href="#" id="loginLink">Login</a>
-			<a href="#" id="logoutLink" class="hidden"></a>
-		</div>
 
-		<h1>Movie History</h1>
-		<div id="searchFilter">
-			<p id="untracked">Show Untracked</p>
-			<p id="unwatched">Show Unwatched</p>
-			<p id="watched">Show Watched</p>
-			<p id="favorites">Favorites</p>
-		</div>
-		<div class="container" id="output">
-			<div class="row container">
-				<div class="col-sm-3 movieCard" >
-					
-				</div>
-				<div class="col-sm-3 col-sm-offset-1 movieCard">
-					
-				</div>
-				<div class="col-sm-3 col-sm-offset-1 movieCard">
-					
-				</div>
-			</div>
-		</div>
+		<div class="row navbar" id="navSearch">
+			<label class="col-md-2" for="searchTerm">Search:</label>
+			<input type="text" class="col-md-5" name="searchTerm" id="input">
+			<a  class="col-md-1 col-md-offset-4" href="#" id="auth-btn">Login</a>
+			<a class="col-md-1 col-md-offset-4 hidden" href="#" id="logout-btn" >Logout</a>
+		</div> <!-- End Row -->
 
-		<!-- <div>
-			<button class="add-new-movie"></button>
-			<button class="edit-btn"></button>
-			<button class="delete-btn"></button>
-		</div> -->
-	</div>
+		<div class="row">
+			<h1 id="bread-crumbs">Movie History</h1>
+			<div id="searchFilter">
+				<p id="find-new-movies">Show Untracked</p>
+				<p id="show-unwatched-movies">Show Unwatched</p>
+				<p id="show-watched-movies">Show Watched</p>
+				<p id="show-favorite-movies">Favorites</p>
+			</div> <!-- End Searchfilter -->
+		</div> <!-- End Row -->
+
+
+		<div class="row" id="output">
+			<div class="row movies"></div>
+		</div> <!-- End Row -->
+
+
+
+	</div> <!-- End Container -->
 
 	<script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="lib/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 	<script type="text/javascript" src="dist/app.js"></script>
 </body>
 </html>
