@@ -1,6 +1,6 @@
 "use strict";
 
-let firebase = require("firebase/app"),
+let firebase = require("../lib/node_modules/firebase/app"),
 	fb = require("./fb-getter"),
 	fbData = fb();
 
@@ -19,6 +19,6 @@ firebase.getFBsettings = function () {
 	return config;
 };
 
-firebase.initialzeApp(config);
+firebase.initializeApp(config);
 
 module.exports = firebase;
