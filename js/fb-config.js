@@ -9,7 +9,7 @@ require("firebase/database");
 
 var config = {
 	apiKey: fbData.apiKey,
-	dababaseURL: fbData.databaseURL,
+	databaseURL: fbData.databaseURL,
 	authDomain: fbData.authDomain,
 	//storageBucket: fbData.bucketURL
 };

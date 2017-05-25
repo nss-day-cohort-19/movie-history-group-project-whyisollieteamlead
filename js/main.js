@@ -39,7 +39,7 @@ var addToWatchList = function(movieElementArray, event){
         }
     });
     console.log("titleToPush", titleToPush);
-    db.pushToFirebaseArray(titleToPush, userID);
+//    db.pushToFirebaseArray(titleToPush, userID);
     db.pushToFirebase(titleToPush, userID)
     .then(function(response){
         console.log(response);
@@ -85,7 +85,7 @@ var getActors = function(movieObj){
 };
 $(document).on("click", '.add-to-watchlist', function(event){
     var userID = user.getUser();
-    db.pushToFirebaseArray(newMovieObj.id, userID);
+//    db.pushToFirebaseArray(newMovieObj.id, userID);
     db.pushToFirebase(newMovieObj, userID)
     .then(function(response){
         console.log(response);
