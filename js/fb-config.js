@@ -1,6 +1,6 @@
 "use strict";
 
-let firebase = require("../lib/node_modules/firebase/app"),
+let firebase = require("firebase/app"),
 	fb = require("./fb-getter"),
 	fbData = fb();
 

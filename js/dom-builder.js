@@ -5,5 +5,5 @@ let $ = require('jquery'),
 
 function buildDom(movies) {
 	let masterCard = movieTemplate(movies);
-	$("output").html(masterCard);
+	$("output").append(masterCard);
 }
