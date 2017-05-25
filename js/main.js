@@ -11,14 +11,12 @@ let $ = require('jquery'),
 require("bootstrap");
 require("bootstrap-star-rating");
 
+//Creates new blank movies object
+var newMovieObj = {};
 
 
 
-    var newMovieObj = {};
-
-
-
-
+//Login
 $("#auth-btn").click(function(){
     console.log("clicked on auth btn");
     user.logInGoogle()
@@ -29,24 +27,8 @@ $("#auth-btn").click(function(){
   });
 });
 
-var addToWatchList = function(movieElementArray, event){
-    console.log("movieElementArray", movieElementArray);
-    var userID = user.getUser();
-    var movieTitle = event.target.closest("div").querySelector(".movie-title").innerHTML;
-    var titleToPush = {};
-    movieElementArray.forEach(function(movie){
-        if(movieTitle === movie.title){
-            titleToPush = movie;
-        }
-    });
-    console.log("titleToPush", titleToPush);
-//    db.pushToFirebaseArray(titleToPush, userID);
-    db.pushToFirebase(titleToPush, userID)
-    .then(function(response){
-        console.log(response);
-        });
-};
 
+//Gets new movies from movie API database, adds breadcrumbs and displays results on page
 $("#find-new-movies").click(function(){
 //    $(“.toggle-buttons”).toggle(“toggle-selected”);
     $("#input").focus();
@@ -54,9 +36,11 @@ $("#find-new-movies").click(function(){
     let breadcrumbs = "Movie History > Search Results";
     $("#bread-crumbs").text(breadcrumbs);
     var inputItem = $("#input").val();
+    //get array of movie titles from database
     db.getMovie(inputItem)
     .then(function(movieData){
         newMovieObj.results = movieData.results;
+        //passes that array to getActors function
         getActors(newMovieObj);
     });
 });
@@ -64,7 +48,6 @@ $("#find-new-movies").click(function(){
 var getActors = function(movieObj){
     var movieElementArray = [];
     movieObj.results.forEach(function(element){
-        movieElementArray.push(element);
         element.cast = [];
             db.getActors(element.id)
             .then(function(actors){
@@ -80,20 +63,37 @@ var getActors = function(movieObj){
                 element.starValue = 0;
             $(".movies").append(unwatchedcardsTemplate(element));
             });
+
+        movieElementArray.push(element);
+
         });
+
         $(document).on("click", ".add-to-watchlist", function(){
                 addToWatchList(movieElementArray, event);
     });
 };
 
-$(document).on("click", '.add-to-watchlist', function(event){
+
+var addToWatchList = function(movieElementArray,event){
+    console.log("movieElementArray", movieElementArray);
     var userID = user.getUser();
-//    db.pushToFirebaseArray(newMovieObj.id, userID);
-    db.pushToFirebase(newMovieObj, userID)
+    var movieTitle = event.target.closest("div").querySelector(".movie-title").innerHTML;
+    var titleToPush = {};
+    movieElementArray.forEach(function(movie){
+        if(movieTitle === movie.title){
+            titleToPush = movie;
+        }
+    });
+    console.log("titleToPush", titleToPush);
+    db.pushToFirebase(titleToPush, userID)
     .then(function(response){
         console.log(response);
         });
-});
+};
+
+
+
+
 $("#logout").click(function(){
   console.log("logout clicked");
   user.logOut();
