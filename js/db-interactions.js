@@ -29,7 +29,7 @@ function getActors(movieID) {
 function pushToFirebase(movieObj, userID){
     return new Promise(function(resolve, reject){
         $.ajax({
-            url: `${firebase.getFBsettings().databaseURL}/${userID}/movies.json`,
+            url: `${firebase.getFBsettings().databaseURL}/movies.json`,
             type: "POST",
             data: JSON.stringify(movieObj),
             dataType: "json"

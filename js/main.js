@@ -27,6 +27,10 @@ $("#auth-btn").click(function(){
   });
 });
 
+$(document).on("click", "#logout-btn", function(){
+    user.logOut();
+});
+
 
 //Gets new movies from movie API database, adds breadcrumbs and displays results on page
 $("#find-new-movies").click(function(){
@@ -84,6 +88,7 @@ var addToWatchList = function(movieElementArray,event){
             titleToPush = movie;
         }
     });
+    titleToPush.uid = userID;
     console.log("titleToPush", titleToPush);
     db.pushToFirebase(titleToPush, userID)
     .then(function(response){
