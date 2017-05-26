@@ -35,7 +35,7 @@ $(document).on("click", "#logout-btn", function(){
 //Gets new movies from movie API database, adds breadcrumbs and displays results on page
 $("#find-new-movies").click(function(){
 //    $(“.toggle-buttons”).toggle(“toggle-selected”);
-    $(document).off("click", ".watch-list-delete");
+    $(document).off("click", ".add-to-watchlist");
     $("#input").focus();
     $(".movies").empty();
     let breadcrumbs = "Movie History > Search Results";
@@ -74,6 +74,7 @@ var getActors = function(movieObj){
         });
 
         $(document).on("click", ".add-to-watchlist", function(event){
+            console.log("Add to Watchlist: ", event.target);//creating multiple objects that have listener set to it everytime same title is search, which was creating multiple empty objects on other pages
                 addToWatchList(movieElementArray, event);
     });
 };
@@ -99,14 +100,15 @@ var addToWatchList = function(movieElementArray,event){
 
 
 
-
 $("#logout").click(function(){
   console.log("logout clicked");
   user.logOut();
 });
-///Tam..buttons do not toggle color yet, pulls a list of movies added to watchlist
+
+
+
 $("#show-unwatched-movies").click((event) =>{
-    let breadcrumbs = "Movie History > Search Results/Unwatched";
+    let breadcrumbs = "Movie History > Search Results/ Watchlist";
     $("#bread-crumbs").text(breadcrumbs);
     $("#input").val("");
 //    $(".toggle-buttons").toggle("toggle-selected");
@@ -116,17 +118,19 @@ $("#show-unwatched-movies").click((event) =>{
     .then((data) =>{
         displayWatchList(data);
     });
-//    .prop('disabled', true)......don't think we need to disable
 });
+
+
 //Tam....empties Dom so only Watchlist will display, set FB unique ID to a var and passed it as an arg//did npm install of bootstrap dependency for stars
 function displayWatchList (watchObj) {
+
     $("#input").val("");
     $(".movies").empty();
      for (let key in watchObj) {
-//            console.log("is this a key?" + data[key].title);
             let newMovieObj = watchObj[key];
             newMovieObj.key = key;
             $(".movies").append(watchedcardsTemplate(newMovieObj));
+            deleteButtonListener(key);
             $("#star--" + key).rating({stars: 10, step: 1, min: 0, max: 10});
             $("#star--" + key).rating('update', newMovieObj.starValue);
         }
@@ -141,17 +145,21 @@ function displayWatchList (watchObj) {
     });
 }
 //Tam...removed watched movie card from page
-$(document).on("click", '.watch-list-delete', function(event){
-    let firebaseKey = event.currentTarget.parentElement.id;
-    console.log("which key is being deleted" + firebaseKey);
-    let deleteButton = event.currentTarget.parentElement;
-    let currentUser = user.getUser();
-    db.deleteWatchedMovie(firebaseKey, currentUser);
-    deleteButton.remove();
-});
+function deleteButtonListener(key) {
+    $("#watch--" + key).click((event)=>{
+        let deleteButton = event.currentTarget.parentElement;
+        let currentUser = user.getUser();
+        db.deleteWatchedMovie(key, currentUser);
+        deleteButton.remove();
+    });
+}
+
 
 
 $("#show-watched-movies").click((event)=>{
+    let breadcrumbs = "Movie History > Search Results/ Watchlist/ Watched Movies";
+    $("#bread-crumbs").text(breadcrumbs);
+    $(document).off("click", ".watch-list-delete");
     $(".movies").empty();
     let currentUser = user.getUser();
     db.pullWatchFromFirebase(currentUser)
@@ -161,6 +169,7 @@ $("#show-watched-movies").click((event)=>{
             singleMovie.key = key;
             if (singleMovie.starValue > 0) {
                 $(".movies").append(watchedcardsTemplate(singleMovie));
+                deleteButtonListener(key);
                 $("#star--" + key).rating({stars: 10, step: 1, min: 0, max: 10});
                 $("#star--" + key).rating('update', singleMovie.starValue);
             }
@@ -169,7 +178,12 @@ $("#show-watched-movies").click((event)=>{
     }).catch(console.error);
 });
 
-
+$("#searchFilter p").click((event)=>{
+    $(".button-class").removeClass("button-class");
+    let currentButton = event.currentTarget.id;
+    console.log("what is happening here with this button", currentButton);
+    $("#" + currentButton).toggleClass("button-class");
+});
 
 
 

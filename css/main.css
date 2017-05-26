@@ -31,5 +31,15 @@
   border-radius: 5px;
   box-shadow: 1px 1px grey; }
 
+.movieCard2 {
+  margin-top: 2em; }
+
+.movies {
+  margin-top: 50px;
+  padding-top: 2em; }
+
 .hidden {
   display: none; }
+
+.button-class {
+  background-color: gray; }
