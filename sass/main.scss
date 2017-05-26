@@ -105,9 +105,12 @@ img {
     margin-right: 30%;
 }
 
-.slider-handle.custom::before {
-    line-height: 20px;
-    font-size: 20px;
-    content: '\2605'; /*unicode star character*/
-    color: #726204;
-}
+
+// .custom[type=range]:-webkit-slider-thumb {
+//     -webkit-appearance: none;
+//     line-height: 20px;
+//     font-size: 20px;
+//     background: goldenrod;
+//     content: '\2605'; /*unicode star character*/
+//     color: #726204;
+// }
