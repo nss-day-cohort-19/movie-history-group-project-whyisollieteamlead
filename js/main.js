@@ -135,12 +135,11 @@ $("#show-unwatched-movies").click((event) =>{
     let breadcrumbs = "Movie History > Search Results/ Watchlist";
     $("#bread-crumbs").text(breadcrumbs);
     $("#input").val("");
-//    $(".toggle-buttons").toggle("toggle-selected");
+
     let userID = user.getUser();
-    console.log("Checking user ID", userID);
     db.pullWatchFromFirebase(userID)
     .then((data) =>{
-        displayWatchList(data);
+         displayWatchList(data);
     });
 });
 
@@ -153,7 +152,10 @@ function displayWatchList (watchObj) {
      for (let key in watchObj) {
             let newMovieObj = watchObj[key];
             newMovieObj.key = key;
+            console.log("key", key);
+            if(Number(newMovieObj.starValue) === 0){
             $(".movies").append(watchedcardsTemplate(newMovieObj));
+            }
             deleteButtonListener(key);
             $("#star--" + key).rating({stars: 10, step: 1, min: 0, max: 10});
             $("#star--" + key).rating('update', newMovieObj.starValue);
@@ -202,12 +204,12 @@ $("#show-watched-movies").click((event)=>{
     }).catch(console.error);
 });
 
-$("#searchFilter p").click((event)=>{
-    $(".button-class").removeClass("button-class");
-    let currentButton = event.currentTarget.id;
-    console.log("what is happening here with this button", currentButton);
-    $("#" + currentButton).toggleClass("button-class");
-});
+// $("#searchFilter p").click((event)=>{
+//     $(".button-class").removeClass("button-class");
+//     let currentButton = event.currentTarget.id;
+//     console.log("what is happening here with this button", currentButton);
+//     $("#" + currentButton).toggleClass("button-class");
+// });
 
 
 
@@ -231,13 +233,13 @@ $("#searchFilter p").click((event)=>{
 
 
 $("#slide").on("input change", function(event) {
-    doSomething(event);
+    showWatchedMovies(event);
 });
 
-function doSomething(event) {
+var showWatchedMovies = function (event) {
     $(".movies").empty();
     let currentUser = user.getUser();
-    let currentSlideValue = event.currentTarget.value;
+    let currentSlideValue = $("#slide").value;
     db.pullWatchFromFirebase(currentUser)
     .then ((movieObj)=>{
 
@@ -293,5 +295,5 @@ function doSomething(event) {
 
     });
 
-}
+};
 
