@@ -22,37 +22,37 @@ var newMovieObj = {};
 //Login
 $("#auth-btn").click(function(event){
     console.log("clicked on auth btn");
-   $(this).addClass('hidden');
-   $("#logout-btn").removeClass('hidden');
-   //showPage();
+
    console.log(event);
     user.logInGoogle()
     .then(function(result){
     console.log("result from Login", result.user.uid);
     user.setUser(result.user.uid);
-    // loadUserMovies();
+    showPage();
   });
 });
 
 //Logout
-$(document).on("click", "#logout-btn", function(){
+$("#logout-btn").click(function(){
     console.log("logout");
-    $(this).addClass('hidden');
-   $("#auth-btn").removeClass('hidden');
     user.logOut();
-    $("#output").html("");
-    //showPage();
+    hidePage();
 });
 
 
-// var showPage = function(){
-//     var currentUser = user.getUser();
-//     if (currentUser === null){
-//         $("#toolbar").addClass("hidden");
-//     }else{
-//         $("#toolbar").removeClass("hidden");
-//     }
-// };
+var hidePage = function(){
+        $("#toolbar").addClass("hidden");
+        $("#logout-btn-div").addClass('hidden');
+        $("#auth-btn-div").removeClass('hidden');
+        $("#output").html("");
+};
+
+var showPage = function(){
+        $("#toolbar").removeClass("hidden");
+        $("#auth-btn-div").addClass('hidden');
+        $("#logout-btn-div").removeClass('hidden');
+    };
+
 
 
 
