@@ -12,6 +12,7 @@ firebase.auth().onAuthStateChanged(function(user){
 	}else{
 		currentUser = null;
 		console.log("no user logged in");
+
 	}
 });
 

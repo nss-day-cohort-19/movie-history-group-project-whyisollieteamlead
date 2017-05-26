@@ -11,6 +11,9 @@
 #searchbar {
   width: 30%; }
 
+.status {
+  padding: 0 2em; }
+
 /*Search filter options*/
 #searchFilter {
   margin-right: auto; }
