@@ -15,7 +15,7 @@ var config = {
 };
 
 firebase.getFBsettings = function () {
-	console.log("gettingFBsettings", config);
+	//console.log("gettingFBsettings", config);
 	return config;
 };
 

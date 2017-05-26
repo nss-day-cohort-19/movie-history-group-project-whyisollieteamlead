@@ -21,8 +21,6 @@ function getActors(movieID) {
             url: `${movies.getMovieSettings().databaseURL}/3/movie/${movieID}/credits?api_key=${movies.getMovieSettings().apiKey}`
         }).done(function(movieData){
             resolve(movieData);
-        }).fail(function(error){
-            reject(error);
         });
     });
 }
@@ -80,7 +78,6 @@ function updateStars(firebaseKey, starValue, userID) {
             type: "PATCH",
             data: JSON.stringify(starValue)
         }).done(function(data){
-            console.log("did this resolve");
             resolve(data);
         });
     });
