@@ -38,6 +38,10 @@
   padding-top: 0.5em;
   border: 2px solid black; }
 
+.unavailable {
+  width: 185px;
+  height: 278px; }
+
 .movieCard2 p {
   margin: 0;
   padding: 0; }
