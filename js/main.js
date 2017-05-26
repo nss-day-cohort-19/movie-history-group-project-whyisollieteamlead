@@ -16,9 +16,15 @@ var newMovieObj = {};
 
 
 
+
+//Login/Logout Functionality
+
 //Login
-$("#auth-btn").click(function(){
+$("#auth-btn").click(function(event){
     console.log("clicked on auth btn");
+   $(this).addClass('hidden');
+   $("#logout-btn").removeClass('hidden');
+   console.log(event);
     user.logInGoogle()
     .then(function(result){
     console.log("result from Login", result.user.uid);
@@ -29,8 +35,18 @@ $("#auth-btn").click(function(){
 
 $(document).on("click", "#logout-btn", function(){
     console.log("logout");
+    $(this).addClass('hidden');
+   $("#auth-btn").removeClass('hidden');
     user.logOut();
 });
+
+
+
+
+
+
+
+
 
 
 //Gets new movies from movie API database, adds breadcrumbs and displays results on page
