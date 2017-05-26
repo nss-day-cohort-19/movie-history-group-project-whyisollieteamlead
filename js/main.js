@@ -168,6 +168,7 @@ function displayWatchList (watchObj) {
 }
 //Tam...removed watched movie card from page
 function deleteButtonListener(key) {
+    console.log("Is event happening");
     $("#watch--" + key).click((event)=>{
         let deleteButton = event.currentTarget.parentElement.parentElement;
         let currentUser = user.getUser();
@@ -241,52 +242,20 @@ function doSomething(event) {
 
         for (let items in movieObj ) {
             let stars = movieObj[items].starValue;
+            let starkey = movieObj[items];
+            starkey.key = items;
 //            console.log("what is my star", stars);
             if (stars == currentSlideValue) {
+                deleteButtonListener(items);
                 console.log("star rating", stars);
                 console.log("Slider Value: " + event.currentTarget.value);
                 $(".movies").append(watchedcardsTemplate(movieObj[items]));
                 $("#star--" + items).rating({stars: 10, step: 1, min: 0, max: 10});
                 $("#star--" + items).rating('update', movieObj[items].starValue);
 
-            }else if (stars == currentSlideValue) {
-                $(".movies").append(watchedcardsTemplate(movieObj[items]));
-                $("#star--" + items).rating({stars: 10, step: 1, min: 0, max: 10});
-                $("#star--" + items).rating('update', movieObj[items].starValue);
-            }else if (stars == currentSlideValue) {
-                $(".movies").append(watchedcardsTemplate(movieObj[items]));
-                $("#star--" + items).rating({stars: 10, step: 1, min: 0, max: 10});
-                $("#star--" + items).rating('update', movieObj[items].starValue);
-            }else if(stars == currentSlideValue) {
-                $(".movies").append(watchedcardsTemplate(movieObj[items]));
-                $("#star--" + items).rating({stars: 10, step: 1, min: 0, max: 10});
-                $("#star--" + items).rating('update', movieObj[items].starValue);
-            }else if (stars == currentSlideValue) {
-                $(".movies").append(watchedcardsTemplate(movieObj[items]));
-                $("#star--" + items).rating({stars: 10, step: 1, min: 0, max: 10});
-                $("#star--" + items).rating('update', movieObj[items].starValue);
-            }else if (stars == currentSlideValue) {
-                $(".movies").append(watchedcardsTemplate(movieObj[items]));
-                $("#star--" + items).rating({stars: 10, step: 1, min: 0, max: 10});
-                $("#star--" + items).rating('update', movieObj[items].starValue);
-            }else if (stars == currentSlideValue) {
-                $(".movies").append(watchedcardsTemplate(movieObj[items]));
-                $("#star--" + items).rating({stars: 10, step: 1, min: 0, max: 10});
-                $("#star--" + items).rating('update', movieObj[items].starValue);
-            }else if (stars == currentSlideValue) {
-                $(".movies").append(watchedcardsTemplate(movieObj[items]));
-                $("#star--" + items).rating({stars: 10, step: 1, min: 0, max: 10});
-                $("#star--" + items).rating('update', movieObj[items].starValue);
-            }else if (stars == currentSlideValue) {
-                $(".movies").append(watchedcardsTemplate(movieObj[items]));
-                $("#star--" + items).rating({stars: 10, step: 1, min: 0, max: 10});
-                $("#star--" + items).rating('update', movieObj[items].starValue);
-            }else if (stars == currentSlideValue) {
-                $(".movies").append(watchedcardsTemplate(movieObj[items]));
-                $("#star--" + items).rating({stars: 10, step: 1, min: 0, max: 10});
-                $("#star--" + items).rating('update', movieObj[items].starValue);
+            }else {
+                console.log("no rating");
             }
-
         }
 
     });
