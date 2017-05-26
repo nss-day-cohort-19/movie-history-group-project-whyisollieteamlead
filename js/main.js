@@ -28,6 +28,7 @@ $("#auth-btn").click(function(){
 });
 
 $(document).on("click", "#logout-btn", function(){
+    console.log("logout");
     user.logOut();
 });
 
@@ -97,13 +98,6 @@ var addToWatchList = function(movieElementArray,event){
         console.log(response);
         });
 };
-
-
-
-$("#logout").click(function(){
-  console.log("logout clicked");
-  user.logOut();
-});
 
 
 
