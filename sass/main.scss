@@ -41,8 +41,7 @@
 }
 
 .movieCard2 {
-    margin-top: 2em;;
-
+    margin-top: 2em;
 }
 .movies {
     margin-top: 50px;
@@ -58,4 +57,12 @@
 .button-class{
     background-color: gray;
     color: white;
+}
+
+.watch-list-delete {
+    border:1px solid black;
+    padding: 5px;
+    margin:0;
+    border-radius: 5px;
+    box-shadow: 1px 1px gray;
 }
