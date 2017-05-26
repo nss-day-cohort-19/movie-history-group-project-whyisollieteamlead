@@ -1,9 +1,25 @@
-<div class="col-md-3 col-md-offset-1 movie-card">
-    <h2 class="movie-title">{{title}}</h2>
-    <p>{{release_date}}</p>
-    <p> Starring: </p>
-    {{#each cast}}
-    <p>{{name}} as {{character}}</p>
-    {{/each}}
-<button class="add-to-watchlist">Add To Watchlist</button>
-</div>
+<section id="{{key}}" class="col-md-4 movieCard2">
+    <div class="delete-butt-div">
+        <button id="watch--{{key}}" class="watch-list-delete">Remove Card</button>
+    </div>
+    {{#if poster_path}}
+    <div class="movie-poster-div">
+        <img alt="movie poster" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{poster_path}}"/>
+    </div>
+    {{else}}
+        <img class="unavailable" src="../images/no-poster-available.jpg">
+        <p class="text-center">(No Poster Available)</p>
+    {{/if}}
+
+
+    <div class="movie-content-div">
+        <h3 class="movie-title">{{title}}</h3>
+        <p><strong>{{release_date}}</strong></p>
+        <p> Starring: </p>
+        {{#each cast}}
+        <p>{{name}} as {{character}}</p>
+        {{/each}}
+        <button class="add-to-watchlist">Add To Watchlist</button>
+    </div>
+
+</section>
