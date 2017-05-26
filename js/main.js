@@ -223,10 +223,75 @@ $("#searchFilter p").click((event)=>{
 //     mySlider.slider('setValue', 1);
 //     mySlider.slider('setValue', 10);
 
+//var slide = document.getElementById('slide'),
+
+//$("#slide").click((event) => {
+//        console.log("is anything happening?");
+//});
 
 
+$("#slide").on("input change", function(event) {
+    doSomething(event);
+});
 
+function doSomething(event) {
+    $(".movies").empty();
+    let currentUser = user.getUser();
+    let currentSlideValue = event.currentTarget.value;
+    db.pullWatchFromFirebase(currentUser)
+    .then ((movieObj)=>{
 
+        for (let items in movieObj ) {
+            let stars = movieObj[items].starValue;
+//            console.log("what is my star", stars);
+            if (stars == currentSlideValue) {
+                console.log("star rating", stars);
+                console.log("Slider Value: " + event.currentTarget.value);
+                $(".movies").append(watchedcardsTemplate(movieObj[items]));
+                $("#star--" + items).rating({stars: 10, step: 1, min: 0, max: 10});
+                $("#star--" + items).rating('update', movieObj[items].starValue);
 
+            }else if (stars == currentSlideValue) {
+                $(".movies").append(watchedcardsTemplate(movieObj[items]));
+                $("#star--" + items).rating({stars: 10, step: 1, min: 0, max: 10});
+                $("#star--" + items).rating('update', movieObj[items].starValue);
+            }else if (stars == currentSlideValue) {
+                $(".movies").append(watchedcardsTemplate(movieObj[items]));
+                $("#star--" + items).rating({stars: 10, step: 1, min: 0, max: 10});
+                $("#star--" + items).rating('update', movieObj[items].starValue);
+            }else if(stars == currentSlideValue) {
+                $(".movies").append(watchedcardsTemplate(movieObj[items]));
+                $("#star--" + items).rating({stars: 10, step: 1, min: 0, max: 10});
+                $("#star--" + items).rating('update', movieObj[items].starValue);
+            }else if (stars == currentSlideValue) {
+                $(".movies").append(watchedcardsTemplate(movieObj[items]));
+                $("#star--" + items).rating({stars: 10, step: 1, min: 0, max: 10});
+                $("#star--" + items).rating('update', movieObj[items].starValue);
+            }else if (stars == currentSlideValue) {
+                $(".movies").append(watchedcardsTemplate(movieObj[items]));
+                $("#star--" + items).rating({stars: 10, step: 1, min: 0, max: 10});
+                $("#star--" + items).rating('update', movieObj[items].starValue);
+            }else if (stars == currentSlideValue) {
+                $(".movies").append(watchedcardsTemplate(movieObj[items]));
+                $("#star--" + items).rating({stars: 10, step: 1, min: 0, max: 10});
+                $("#star--" + items).rating('update', movieObj[items].starValue);
+            }else if (stars == currentSlideValue) {
+                $(".movies").append(watchedcardsTemplate(movieObj[items]));
+                $("#star--" + items).rating({stars: 10, step: 1, min: 0, max: 10});
+                $("#star--" + items).rating('update', movieObj[items].starValue);
+            }else if (stars == currentSlideValue) {
+                $(".movies").append(watchedcardsTemplate(movieObj[items]));
+                $("#star--" + items).rating({stars: 10, step: 1, min: 0, max: 10});
+                $("#star--" + items).rating('update', movieObj[items].starValue);
+            }else if (stars == currentSlideValue) {
+                $(".movies").append(watchedcardsTemplate(movieObj[items]));
+                $("#star--" + items).rating({stars: 10, step: 1, min: 0, max: 10});
+                $("#star--" + items).rating('update', movieObj[items].starValue);
+            }
 
+        }
+
+    });
+
+}
 
