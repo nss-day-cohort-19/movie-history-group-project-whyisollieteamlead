@@ -112,10 +112,12 @@ var getActors = function(movieObj){
 var addToWatchList = function(movieElementArray,event){
     console.log("movieElementArray", movieElementArray);
     var userID = user.getUser();
-    var movieTitle = event.target.closest("section").querySelector(".movie-title").innerHTML;
+    var movieId = event.target.closest("section").querySelector(".movie-id").innerHTML;
     var titleToPush = {};
     movieElementArray.forEach(function(movie){
-        if(movieTitle === movie.title){
+    console.log("movieId", movieId);
+    console.log("movie.id", movie.id);
+        if(Number(movieId) == movie.id){
             titleToPush = movie;
         }
     });
