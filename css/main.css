@@ -32,10 +32,15 @@
   box-shadow: 1px 1px grey; }
 
 .movieCard2 {
-  margin-top: 2em; }
+  margin-top: 2em;
+  margin-bottom: 2em;
+  height: 500px;
+  padding-top: 2em;
+  border: 2px solid black; }
 
 .movies {
   margin-top: 50px;
+  margin-bottom: 50px;
   padding-top: 2em; }
 
 .hidden {
