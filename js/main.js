@@ -10,6 +10,7 @@ let $ = require('jquery'),
     user = require("./user");
 require("bootstrap");
 require("bootstrap-star-rating");
+var Slider = require("bootstrap-slider");
 
 //Creates new blank movies object
 var newMovieObj = {};
@@ -179,6 +180,19 @@ $("#searchFilter p").click((event)=>{
     $("#" + currentButton).toggleClass("button-class");
 });
 
+
+
+// Kathy's attempt at bootstrap-slider
+
+// // Create a star slider
+// var mySlider = $("#movie-star-slider").slider();
+
+// // Call a method on the slider
+// var value = mySlider.slider('getValue');
+
+// // For non-getter methods, you can chain together commands
+//     mySlider.slider('setValue', 1);
+//     mySlider.slider('setValue', 10);
 
 
 

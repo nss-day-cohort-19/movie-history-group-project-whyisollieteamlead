@@ -99,3 +99,10 @@ img {
     margin-top: 0;
     margin-right: 30%;
 }
+
+.slider-handle.custom::before {
+    line-height: 20px;
+    font-size: 20px;
+    content: '\2605'; /*unicode star character*/
+    color: #726204;
+}
