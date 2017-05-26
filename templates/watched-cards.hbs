@@ -1,11 +1,20 @@
 <div id="{{key}}" class="col-md-4 movieCard2">
-   <button id="watch--{{key}}" class="watch-list-delete">Remove Card</button>
-    <h2> {{title}}</h2>
-    <p>{{release_date}}</p>
-    <p> Starring </p>
-    {{#each cast}}
-    <p>{{name}} as {{character}}</p>
-    {{/each}}
-    <input id="star--{{key}}" type="text" class="rating" data-size="xs" >
+    <div class="delete-butt-div">
+        <button id="watch--{{key}}" class="watch-list-delete">Remove Card</button>
+    </div>
+
+    <div class="movie-poster-div">
+        <img alt="movie poster" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{poster_path}}"/>
+    </div>
+
+    <div class="movie-content-div">
+        <h3> {{title}}</h3>
+        <p><strong>{{release_date}}</strong></p>
+        <p> Starring: </p>
+        {{#each cast}}
+        <p>{{name}} as {{character}}</p>
+        {{/each}}
+        <input id="star--{{key}}" type="text" class="rating" data-size="xs" >
+    </div>
 
 </div>

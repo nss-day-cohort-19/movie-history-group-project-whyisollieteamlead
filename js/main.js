@@ -141,7 +141,7 @@ function displayWatchList (watchObj) {
 //Tam...removed watched movie card from page
 function deleteButtonListener(key) {
     $("#watch--" + key).click((event)=>{
-        let deleteButton = event.currentTarget.parentElement;
+        let deleteButton = event.currentTarget.parentElement.parentElement;
         let currentUser = user.getUser();
         db.deleteWatchedMovie(key, currentUser);
         deleteButton.remove();

@@ -32,16 +32,28 @@
   box-shadow: 1px 1px grey; }
 
 .movieCard2 {
-  margin-top: 2em;
+  margin-top: 1em;
   margin-bottom: 2em;
-  height: 500px;
-  padding-top: 2em;
+  height: 725px;
+  padding-top: 0.5em;
   border: 2px solid black; }
+
+.movieCard2 p {
+  margin: 0;
+  padding: 0; }
 
 .movies {
   margin-top: 50px;
   margin-bottom: 50px;
   padding-top: 2em; }
+
+.delete-butt-div {
+  height: 10%;
+  padding-bottom: 5px; }
+
+.movie-poster-div {
+  height: 45%;
+  margin: 0; }
 
 .hidden {
   display: none; }
@@ -51,8 +63,17 @@
   color: white; }
 
 .watch-list-delete {
+  display: inline-block;
   border: 1px solid black;
   padding: 5px;
   margin: 0;
   border-radius: 5px;
   box-shadow: 1px 1px gray; }
+
+.movie-content-div {
+  height: 40%; }
+
+img {
+  margin-left: 25%;
+  margin-top: 0;
+  margin-right: 30%; }
