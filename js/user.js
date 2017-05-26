@@ -16,7 +16,7 @@ firebase.auth().onAuthStateChanged(function(user){
 });
 
 function logInGoogle(){
-	return firebase.auth().signInWithPrompt(provider);
+	return firebase.auth().signInWithPopup(provider);
 }
 
 function logOut(){

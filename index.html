@@ -4,46 +4,56 @@
 	<meta charset="utf-8">
 	<title>Movies</title>
 	<link rel="stylesheet" type="text/css" href="lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="lib/node_modules/bootstrap-star-rating/css/star-rating.min.css">
+	<link rel="stylesheet" type="text/css" href="lib/node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 	<div class="container" id="master-wrapper">
-		<div class="container" id="navSearch">
-			<label for="searchTerm">Search:</label>
-			<input type="text" name="searchTerm" id="searchbar">
-			<a href="#" id="loginLink">Login</a>
-			<a href="#" id="logoutLink" class="hidden"></a>
-		</div>
 
-		<h1>Movie History</h1>
-		<div id="searchFilter">
-			<p id="untracked">Show Untracked</p>
-			<p id="unwatched">Show Unwatched</p>
-			<p id="watched">Show Watched</p>
-			<p id="favorites">Favorites</p>
-		</div>
-		<div class="container" id="output">
-			<div class="row container">
-				<div class="col-sm-3 movieCard" >
-					
-				</div>
-				<div class="col-sm-3 col-sm-offset-1 movieCard">
-					
-				</div>
-				<div class="col-sm-3 col-sm-offset-1 movieCard">
-					
-				</div>
-			</div>
-		</div>
+		<div class="row" id="navSearch">
+			<label class="col-md-1" for="searchTerm">Search:</label>
+			<input type="text" class="col-md-5" name="searchTerm" id="input">
+			<div class="col-md-1 col-md-offset-4" id="auth-btn"><a href="#" >Login</a></div>
+			<div class="col-md-1 col-md-offset-4 hidden" id="logout-btn"><a  href="#"  >Logout</a></div>
+		</div> <!-- End Row -->
 
-		<!-- <div>
-			<button class="add-new-movie"></button>
-			<button class="edit-btn"></button>
-			<button class="delete-btn"></button>
+		<div class="row" id="toolbar">
+			<h1 id="bread-crumbs">Movie History</h1>
+			<div id="searchFilter">
+				<p id="find-new-movies">Search Movies</p>
+				<p id="show-unwatched-movies">Watchlist</p>
+				<p id="show-watched-movies">Watched Movies</p>
+			</div> <!-- End Searchfilter -->
+		</div> <!-- End Row -->
+		<div>
+		<br>
+			<input type="range" min="0" max="10" class="custom">
+			<span id="range"></span>
+		</div>
+<!-- 		<div>
+			<input
+				type="text"
+				id="movie-star-slider"
+				name="movie-star-slider"
+				data-provide="slider"
+				data-slider-min="1"
+				data-slider-max="10"
+				data-slider-tooltip="hide"
+				data-slider-handle="custom"
+				data-slider-ticks_tooltip="true">
 		</div> -->
-	</div>
+		<div class="row" id="output"></div>
+			<div class="row movies"></div>
+		</div> <!-- End Row -->
+
+
+
+	</div> <!-- End Container -->
 
 	<script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="lib/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="lib/node_modules/bootstrap-slider/dist/bootstrap-slider.min.js"></script>
 	<script type="text/javascript" src="dist/app.js"></script>
 </body>
 </html>

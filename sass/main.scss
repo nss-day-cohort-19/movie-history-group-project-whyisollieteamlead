@@ -39,3 +39,78 @@
     box-shadow: 1px 1px grey;
 
 }
+
+.movieCard2 {
+    margin-top: 1em;
+    margin-bottom: 2em;
+    height: 725px;
+    padding-top: 0.5em;
+    border: 2px solid black;
+}
+
+.unavailable{
+    width: 185px;
+    height: 278px;
+}
+
+.movieCard2 p {
+    margin: 0;
+//    display: inline-block;
+    padding: 0;
+
+}
+.movies {
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-top: 2em;
+}
+
+.delete-butt-div {
+    height: 10%;
+    padding-bottom: 5px;
+}
+
+.movie-poster-div {
+    height: 45%;
+    margin: 0;
+}
+
+.hidden{
+    display: none;
+}
+
+.button-class{
+    background-color: gray;
+    color: white;
+}
+
+.watch-list-delete {
+    display: inline-block;
+    border:1px solid black;
+    padding: 5px;
+    margin:0;
+    border-radius: 5px;
+    box-shadow: 1px 1px gray;
+}
+
+.movie-content-div {
+    height: 40%;
+}
+
+img {
+//    display: inline-block;
+    margin-left: 25%;
+    margin-top: 0;
+    margin-right: 30%;
+}
+
+
+// .custom[type=range]:-webkit-slider-thumb {
+//     -webkit-appearance: none;
+//     line-height: 20px;
+//     font-size: 20px;
+//     background: goldenrod;
+//     content: '\2605'; /*unicode star character*/
+//     color: #726204;
+// }

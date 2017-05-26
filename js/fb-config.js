@@ -1,6 +1,6 @@
 "use strict";
 
-let firebase = require("../lib/node_modules/firebase/app"),
+let firebase = require("firebase/app"),
 	fb = require("./fb-getter"),
 	fbData = fb();
 
@@ -9,8 +9,8 @@ require("firebase/database");
 
 var config = {
 	apiKey: fbData.apiKey,
-	dababaseURL: fbData.databaseURL,
-	authDomain: fbData.authDomain,
+	databaseURL: fbData.databaseURL,
+	authDomain: fbData.authDomain
 	//storageBucket: fbData.bucketURL
 };
 
