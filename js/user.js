@@ -12,11 +12,12 @@ firebase.auth().onAuthStateChanged(function(user){
 	}else{
 		currentUser = null;
 		console.log("no user logged in");
+
 	}
 });
 
 function logInGoogle(){
-	return firebase.auth().signInWithPrompt(provider);
+	return firebase.auth().signInWithPopup(provider);
 }
 
 function logOut(){

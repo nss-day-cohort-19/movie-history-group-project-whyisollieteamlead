@@ -10,6 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "bootstrap": "^3.3.7",
+    "bootstrap-slider": "^9.8.0",
+    "bootstrap-star-rating": "^4.0.2",
     "browserify": "^14.3.0",
     "firebase": "^4.0.0",
     "grunt": "^1.0.1",
