@@ -1,4 +1,4 @@
-<div id="{{key}}" class="col-md-4 movieCard2">
+<section id="{{key}}" class="col-md-4 movieCard2">
     <div class="delete-butt-div">
         <button id="watch--{{key}}" class="watch-list-delete">Remove Card</button>
     </div>
@@ -13,7 +13,7 @@
 
 
     <div class="movie-content-div">
-        <h3> {{title}}</h3>
+        <h3 class="movie-title">{{title}}</h3>
         <p><strong>{{release_date}}</strong></p>
         <p> Starring: </p>
         {{#each cast}}
@@ -22,4 +22,4 @@
         <button class="add-to-watchlist">Add To Watchlist</button>
     </div>
 
-</div>
+</section>

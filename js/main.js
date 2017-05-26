@@ -24,6 +24,7 @@ $("#auth-btn").click(function(event){
     console.log("clicked on auth btn");
    $(this).addClass('hidden');
    $("#logout-btn").removeClass('hidden');
+   //showPage();
    console.log(event);
     user.logInGoogle()
     .then(function(result){
@@ -33,15 +34,25 @@ $("#auth-btn").click(function(event){
   });
 });
 
+//Logout
 $(document).on("click", "#logout-btn", function(){
     console.log("logout");
     $(this).addClass('hidden');
    $("#auth-btn").removeClass('hidden');
     user.logOut();
+    $("#output").html("");
+    //showPage();
 });
 
 
-
+// var showPage = function(){
+//     var currentUser = user.getUser();
+//     if (currentUser === null){
+//         $("#toolbar").addClass("hidden");
+//     }else{
+//         $("#toolbar").removeClass("hidden");
+//     }
+// };
 
 
 
@@ -100,7 +111,7 @@ var getActors = function(movieObj){
 var addToWatchList = function(movieElementArray,event){
     console.log("movieElementArray", movieElementArray);
     var userID = user.getUser();
-    var movieTitle = event.target.closest("div").querySelector(".movie-title").innerHTML;
+    var movieTitle = event.target.closest("section").querySelector(".movie-title").innerHTML;
     var titleToPush = {};
     movieElementArray.forEach(function(movie){
         if(movieTitle === movie.title){
